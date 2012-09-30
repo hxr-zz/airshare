@@ -9,16 +9,14 @@ Welcome to Airshare 1.0
 Airshare lets you share files across a local area network(LAN) or your between
 your devices on your home network.
 
-System requirements:
-====================
+System requirements and Installation:
+=====================================
 * Ubuntu 10.04 or better
 * Avahi
-* Python 2.7
+* Python 2.6 or better
 
-Installation:
-=============
-
-Airshare is a simple python script. Just run "airshare" from wherever you copy it. It might be useful to 
+Airshare is a simple python script. Just run "airshare" with python.
+It might be useful to include it somewhere in your $PATH
 
 Sharing files:
 ==============
