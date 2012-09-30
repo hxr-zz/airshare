@@ -9,8 +9,8 @@ Welcome to Airshare 1.0
 Airshare lets you share files across a local area network(LAN) or your between
 your devices on your home network.
 
-System requirements and Installation:
-=====================================
+System requirements and Installation
+====================================
 * Ubuntu 10.04 or better
 * Avahi
 * Python 2.6 or better
@@ -18,18 +18,16 @@ System requirements and Installation:
 Airshare is a simple python script. Just run "airshare" with python.
 It might be useful to include it somewhere in your $PATH
 
-Sharing files:
-==============
+Sharing files
+=============
 To start sharing a directory:
 
-$ airshare <dir-name>
+$ airshare <dir-name> # your user-name is same as your login ID on your machine
+
 $ airshare <dir-name> [user-name] #others will see you as [user-name]
 
-Airshare will automatically notice changes to the share directory.
-Sub-directories are not supported at this time.
-
-Listing users:
-==============
+Listing users
+=============
 To list all file-sharers on your network:
 
 $ airshare list
@@ -37,8 +35,8 @@ $ airshare list
 satya home_share/  15 file(s)
 peter shares/       5 file(s)
 
-Listing files shared by a user:
-===============================
+Listing files shared by a user
+==============================
 To list all files shared by someone on your network:
 
 $ airshare list peter
@@ -50,8 +48,8 @@ Date/Time Name Size
 ....
 ....
 
-Getting files from other shares:
-================================
+Getting files from others
+=========================
 
 $ airshare get peter doc.txt
 
