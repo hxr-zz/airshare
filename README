@@ -14,6 +14,7 @@ System requirements and Installation
 * Ubuntu 10.04 or better
 * Avahi
 * Python 2.6 or better
+* python-avahi and python-dbus
 
 Airshare is a simple python script. Just run "airshare" with python.
 It might be useful to include it somewhere in your $PATH
