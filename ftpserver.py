@@ -3667,6 +3667,7 @@ class FTPServer(object, asyncore.dispatcher):
 
     max_cons = 512
     max_cons_per_ip = 0
+    kport = 0
 
     def __init__(self, address, handler):
         """Initiate the FTP server opening listening on address.
@@ -3711,6 +3712,7 @@ class FTPServer(object, asyncore.dispatcher):
             if not self.socket:
                 raise socket.error(msg)
         self.listen(5)
+        self.kport = self.getsockname()[1]
 
     @property
     def address(self):
