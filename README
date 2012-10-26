@@ -23,24 +23,32 @@ Sharing files
 =============
 To start sharing a directory:
 
-$ airshare <dir-name> # your user-name is same as your login ID on your machine
+$ airshare <path/to/dir>
+(dir is shared, your user-name is same as your login ID on your machine)
 
-$ airshare <dir-name> [user-name] #others will see you as [user-name]
+$ airshare -u username <path/to/dir> 
+(dir is shared, others will see you as username)
+
+This will start the airshare command shell. From here you can navigate the
+airshare network.
+
+$ airshare --shell [username]
+(nothing is shared, enters command shell so you can browse the network)
 
 Listing users
 =============
-To list all file-sharers on your network:
+List all file-sharers on your network:
 
-$ airshare list
+ready> list
 
 satya home_share/  15 file(s)
-peter shares/       5 file(s)
+petr  shares/       5 file(s)
 
 Listing files shared by a user
 ==============================
-To list all files shared by someone on your network:
+List files shared by someone on your network:
 
-$ airshare list peter
+ready> list petr
 
 satya home_share/  5 file(s)
 
@@ -52,10 +60,17 @@ Date/Time Name Size
 Getting files from others
 =========================
 
-$ airshare get peter doc.txt
+ready> get petr/doc.txt
 
 Getting doc.txt from peter:
 [===========================>] 100%
 
 (File is downloaded into current directory on local machine).
 
+Quit Airshare
+=============
+
+ready> quit
+
+(or press ctrl-d)
+.
