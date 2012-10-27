@@ -10,9 +10,12 @@ A file-sharing program for local area networks
 
 """
 
-import ftpserver as fs
+import threading
 import cmd
 import sys
+import ftpserver as fs
+
+share_dir = '.'
 
 def show_logo():
     print "    ___    _           __"
@@ -46,16 +49,11 @@ class cli(cmd.Cmd):
         print
         return True
 
-def cli_thread():
-    """
-    Command line interpreter thread
-    """
+def run_cli():
+    cl_ui = cli()
+    cl_ui.cmdloop('')
 
-def main():
-    show_logo()
-    x = cli()
-    x.cmdloop('')
-    share_dir = "."
+def serve_files():
     authorizer = fs.DummyAuthorizer()
     perm = "elr"
     authorizer.add_anonymous(share_dir, perm=perm)
@@ -64,6 +62,21 @@ def main():
     ftpd = fs.FTPServer(('0.0.0.0', 0), handler)
     print ftpd.kport
     ftpd.serve_forever()
+
+def main():
+    global share_dir
+    show_logo()
+    share_dir = "."
+
+    ui = threading.Thread(name='ui', target=run_cli)
+    fs = threading.Thread(name='fs', target=serve_files)
+
+    fs.setDaemon(True)
+
+    fs.start()
+    ui.start()
+
+    ui.join()
     pass
 
 if __name__ == '__main__':
